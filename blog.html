@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - FitAnti</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/blog.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><span class="logo-text">Fit<span class="accent">Anti</span></span></a>
+      </div>
+      <nav>
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calcolatori.html">Calcolatori</a></li>
+          <li><a href="piano-allenamento.html">Piano Allenamento</a></li>
+          <li><a href="ricette.html">Ricette Fit</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Blog</h1>
+        <p>Articoli educativi su fitness, nutrizione e benessere</p>
+      </div>
+    </section>
+
+    <section class="blog-categories">
+      <div class="container">
+        <div class="category-tabs">
+          <button class="category-btn active" data-category="all">Tutti</button>
+          <button class="category-btn" data-category="allenamento">Allenamento</button>
+          <button class="category-btn" data-category="nutrizione">Nutrizione</button>
+          <button class="category-btn" data-category="salute">Salute</button>
+          <button class="category-btn" data-category="mindfulness">Mindfulness</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="blog-layout">
+          <div class="articles-container">
+            <article class="blog-article" data-category="allenamento" id="hiit">
+              <div class="article-img-container">
+                <img src="https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Allenamento HIIT" class="article-img">
+              </div>
+              <div class="article-content">
+                <div class="article-meta">
+                  <span class="article-category">Allenamento</span>
+                  <span class="article-date">15 Marzo 2025</span>
+                </div>
+                <h2>I benefici dell'allenamento HIIT</h2>
+                <p class="article-excerpt">L'allenamento a intervalli ad alta intensità (HIIT) è diventato estremamente popolare negli ultimi anni, e per buone ragioni. Scopri i numerosi benefici di questa forma di allenamento efficiente...</p>
+                <a href="#" class="read-more-btn" data-article="hiit">Leggi l'articolo completo</a>
+              </div>
+            </article>
+
+            <article class="blog-article" data-category="nutrizione" id="alimentazione">
+              <div class="article-img-container">
+                <img src="https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Alimentazione e sport" class="article-img">
+              </div>
+              <div class="article-content">
+                <div class="article-meta">
+                  <span class="article-category">Nutrizione</span>
+                  <span class="article-date">10 Marzo 2025</span>
+                </div>
+                <h2>Alimentazione e sport: cosa mangiare prima e dopo l'allenamento</h2>
+                <p class="article-excerpt">Una corretta alimentazione è fondamentale per ottimizzare le prestazioni sportive e il recupero. In questo articolo, esaminiamo cosa mangiare prima e dopo l'allenamento per massimizzare i risultati...</p>
+                <a href="#" class="read-more-btn" data-article="alimentazione">Leggi l'articolo completo</a>
+              </div>
+            </article>
+
+            <article class="blog-article" data-category="allenamento" id="stretching">
+              <div class="article-img-container">
+                <img src="https://media.gq.com/photos/59a9a273dc3ba42b1cdca2e9/master/pass/2017-09_GQ-FITNESS-Stretching_3x2.jpg" alt="Stretching" class="article-img">
+              </div>
+              <div class="article-content">
+                <div class="article-meta">
+                  <span class="article-category">Allenamento</span>
+                  <span class="article-date">5 Marzo 2025</span>
+                </div>
+                <h2>L'importanza dello stretching: prima o dopo l'allenamento?</h2>
+                <p class="article-excerpt">Lo stretching è un elemento cruciale di qualsiasi routine di fitness, ma ci sono opinioni contrastanti su quando eseguirlo. Esploriamo i benefici dello stretching e il momento migliore per praticarlo...</p>
+                <a href="#" class="read-more-btn" data-article="stretching">Leggi l'articolo completo</a>
+              </div>
+            </article>
+
+            <article class="blog-article" data-category="salute" id="sonno">
+              <div class="article-img-container">
+                <img src="https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Sonno e recupero" class="article-img">
+              </div>
+              <div class="article-content">
+                <div class="article-meta">
+                  <span class="article-category">Salute</span>
+                  <span class="article-date">28 Febbraio 2025</span>
+                </div>
+                <h2>L'importanza del sonno per il recupero muscolare</h2>
+                <p class="article-excerpt">Il sonno è spesso trascurato come componente essenziale del recupero muscolare e della crescita. Scopri perché dormire bene è fondamentale per ottimizzare i risultati dell'allenamento...</p>
+                <a href="#" class="read-more-btn" data-article="sonno">Leggi l'articolo completo</a>
+              </div>
+            </article>
+
+            <article class="blog-article" data-category="nutrizione" id="proteine">
+              <div class="article-img-container">
+                <img src="https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Fonti proteiche" class="article-img">
+              </div>
+              <div class="article-content">
+                <div class="article-meta">
+                  <span class="article-category">Nutrizione</span>
+                  <span class="article-date">20 Febbraio 2025</span>
+                </div>
+                <h2>Le migliori fonti proteiche per vegetariani e vegani</h2>
+                <p class="article-excerpt">Una dieta vegetariana o vegana può fornire tutte le proteine necessarie per il recupero muscolare e la crescita. Esploriamo le migliori fonti proteiche vegetali e come incorporarle nella tua alimentazione...</p>
+                <a href="#" class="read-more-btn" data-article="proteine">Leggi l'articolo completo</a>
+              </div>
+            </article>
+
+            <article class="blog-article" data-category="mindfulness" id="meditazione">
+              <div class="article-img-container">
+                <img src="https://images.pexels.com/photos/3759659/pexels-photo-3759659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Meditazione" class="article-img">
+              </div>
+              <div class="article-content">
+                <div class="article-meta">
+                  <span class="article-category">Mindfulness</span>
+                  <span class="article-date">15 Febbraio 2025</span>
+                </div>
+                <h2>La meditazione come strumento per migliorare le prestazioni sportive</h2>
+                <p class="article-excerpt">La meditazione non è solo una pratica per ridurre lo stress, ma può anche migliorare significativamente le prestazioni sportive. Scopri come la mindfulness può aiutarti a superare i tuoi limiti...</p>
+                <a href="#" class="read-more-btn" data-article="meditazione">Leggi l'articolo completo</a>
+              </div>
+            </article>
+          </div>
+
+          <aside class="blog-sidebar">
+            <div class="sidebar-section">
+              <h3>Articoli popolari</h3>
+              <ul class="popular-articles">
+                <li><a href="#" data-article="hiit">I benefici dell'allenamento HIIT</a></li>
+                <li><a href="#" data-article="alimentazione">Alimentazione e sport: cosa mangiare</a></li>
+                <li><a href="#" data-article="sonno">L'importanza del sonno per il recupero</a></li>
+                <li><a href="#" data-article="meditazione">Meditazione e prestazioni sportive</a></li>
+              </ul>
+            </div>
+            <div class="sidebar-section">
+              <h3>Categorie</h3>
+              <ul class="categories-list">
+                <li><a href="#" data-category="allenamento">Allenamento</a></li>
+                <li><a href="#" data-category="nutrizione">Nutrizione</a></li>
+                <li><a href="#" data-category="salute">Salute</a></li>
+                <li><a href="#" data-category="mindfulness">Mindfulness</a></li>
+              </ul>
+            </div>
+            <div class="sidebar-section newsletter">
+              <h3>Newsletter</h3>
+              <p>Ricevi i nostri articoli direttamente nella tua inbox</p>
+              <form class="newsletter-form">
+                <input type="email" placeholder="La tua email" required>
+                <button type="submit" class="btn btn-primary">Iscriviti</button>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <div id="article-modal" class="modal">
+      <div class="modal-content article-modal-content">
+        <span class="close-modal">&times;</span>
+        <article class="full-article">
+          <div class="article-header">
+            <h2 id="modal-article-title"></h2>
+            <div class="article-meta">
+              <span class="article-category" id="modal-article-category"></span>
+              <span class="article-date" id="modal-article-date"></span>
+            </div>
+          </div>
+          <div class="article-featured-img">
+            <img id="modal-article-img" src="" alt="">
+          </div>
+          <div class="article-body" id="modal-article-content"></div>
+          <div class="article-footer">
+            <div class="article-tags" id="modal-article-tags"></div>
+            <div class="article-share">
+              <p>Condividi:</p>
+              <div class="share-buttons">
+                <button class="share-btn facebook">Facebook</button>
+                <button class="share-btn twitter">Twitter</button>
+                <button class="share-btn whatsapp">WhatsApp</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>FitAnti</h3>
+          <p>Il tuo portale per fitness e salute. Strumenti, consigli e risorse per migliorare il tuo benessere.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calcolatori.html">Calcolatori</a></li>
+            <li><a href="piano-allenamento.html">Piano Allenamento</a></li>
+            <li><a href="ricette.html">Ricette Fit</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contatti</h4>
+          <p>Email: info@fitanti.edu</p>
+          <p>Telefono: +39 392 445 1517</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FitAnti - Progetto scolastico. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navigation.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>

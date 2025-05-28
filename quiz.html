@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Fitness - FitAnti</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/quiz.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><span class="logo-text">Fit<span class="accent">Anti</span></span></a>
+      </div>
+      <nav>
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calcolatori.html">Calcolatori</a></li>
+          <li><a href="piano-allenamento.html">Piano Allenamento</a></li>
+          <li><a href="ricette.html">Ricette Fit</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="quiz.html" class="active">Quiz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Quiz sul Fitness</h1>
+        <p>Metti alla prova le tue conoscenze su alimentazione e allenamento</p>
+      </div>
+    </section>
+
+    <section class="quiz-section">
+      <div class="container">
+        <div class="quiz-container">
+          <div class="quiz-intro" id="quiz-intro">
+            <h2>Sei pronto per testare le tue conoscenze?</h2>
+            <p>Questo quiz contiene domande su nutrizione, allenamento e salute generale. Scegli la categoria che preferisci per iniziare!</p>
+            
+            <div class="quiz-categories">
+              <div class="quiz-category" data-category="nutrizione">
+                <div class="category-icon">🍎</div>
+                <h3>Nutrizione</h3>
+                <p>Domande su macronutrienti, calorie, e alimentazione corretta</p>
+                <button class="btn btn-primary start-quiz-btn" data-category="nutrizione">Inizia Quiz</button>
+              </div>
+              
+              <div class="quiz-category" data-category="allenamento">
+                <div class="category-icon">💪</div>
+                <h3>Allenamento</h3>
+                <p>Domande su tipi di esercizi, tecniche e principi di fitness</p>
+                <button class="btn btn-primary start-quiz-btn" data-category="allenamento">Inizia Quiz</button>
+              </div>
+              
+              <div class="quiz-category" data-category="misto">
+                <div class="category-icon">🏆</div>
+                <h3>Quiz Completo</h3>
+                <p>Una combinazione di domande su tutti gli aspetti del fitness</p>
+                <button class="btn btn-primary start-quiz-btn" data-category="misto">Inizia Quiz</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quiz-content hidden" id="quiz-content">
+            <div class="quiz-header">
+              <h2 id="quiz-title">Quiz</h2>
+              <div class="quiz-progress">
+                <div class="progress-text">
+                  Domanda <span id="current-question">1</span> di <span id="total-questions">10</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" id="progress-fill"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="question-container" id="question-container">
+              <h3 id="question-text">Domanda</h3>
+              <div class="options-container" id="options-container">
+                <!-- Options will be inserted here by JS -->
+              </div>
+            </div>
+            
+            <div class="quiz-navigation">
+              <button id="prev-btn" class="btn btn-outline" disabled>Precedente</button>
+              <button id="next-btn" class="btn btn-primary" disabled>Successiva</button>
+              <button id="submit-btn" class="btn btn-secondary hidden">Termina Quiz</button>
+            </div>
+          </div>
+          
+          <div class="quiz-results hidden" id="quiz-results">
+            <div class="results-header">
+              <h2>Risultati del Quiz</h2>
+              <div class="score-container">
+                <div class="score-circle">
+                  <span id="score-percentage">0%</span>
+                </div>
+                <p>Hai risposto correttamente a <span id="correct-answers">0</span> domande su <span id="total-answers">0</span></p>
+              </div>
+            </div>
+            
+            <div class="results-feedback" id="results-feedback">
+              <!-- Feedback will be inserted here by JS -->
+            </div>
+            
+            <div class="results-summary" id="results-summary">
+              <h3>Riepilogo delle risposte</h3>
+              <div class="summary-container" id="summary-container">
+                <!-- Summary will be inserted here by JS -->
+              </div>
+            </div>
+            
+            <div class="results-actions">
+              <button id="retry-btn" class="btn btn-outline">Riprova Quiz</button>
+              <button id="new-quiz-btn" class="btn btn-primary">Nuovo Quiz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="quiz-stats">
+      <div class="container">
+        <h2>Statistiche Quiz</h2>
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon">🧠</div>
+            <div class="stat-info">
+              <h3>Quiz Completati</h3>
+              <p id="completed-quizzes">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-info">
+              <h3>Punteggio Medio</h3>
+              <p id="average-score">0%</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🏅</div>
+            <div class="stat-info">
+              <h3>Miglior Punteggio</h3>
+              <p id="best-score">0%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>FitAnti</h3>
+          <p>Il tuo portale per fitness e salute. Strumenti, consigli e risorse per migliorare il tuo benessere.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calcolatori.html">Calcolatori</a></li>
+            <li><a href="piano-allenamento.html">Piano Allenamento</a></li>
+            <li><a href="ricette.html">Ricette Fit</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contatti</h4>
+          <p>Email: info@fitanti.edu</p>
+          <p>Telefono: +39 392 445 1517</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FitAnti - Progetto scolastico. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navigation.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

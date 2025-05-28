@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcolatori - FitAnti</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/calcolatori.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><span class="logo-text">Fit<span class="accent">Anti</span></span></a>
+      </div>
+      <nav>
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calcolatori.html" class="active">Calcolatori</a></li>
+          <li><a href="piano-allenamento.html">Piano Allenamento</a></li>
+          <li><a href="ricette.html">Ricette Fit</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>I nostri calcolatori fitness</h1>
+        <p>Strumenti pratici per monitorare e migliorare la tua salute</p>
+      </div>
+    </section>
+
+    <section class="calculators">
+      <div class="container">
+        <div class="calculator-tabs">
+          <button class="tab-btn active" data-tab="imc">IMC</button>
+          <button class="tab-btn" data-tab="tdee">TDEE</button>
+          <button class="tab-btn" data-tab="macro">Macronutrienti</button>
+          <button class="tab-btn" data-tab="calorie">Calorie per dimagrire</button>
+        </div>
+
+        <!-- IMC Calculator -->
+        <div class="calculator-content active" id="imc">
+          <h2>Calcolatore Indice di Massa Corporea (IMC)</h2>
+          <p>L'IMC è un indicatore che mette in relazione il peso e l'altezza. Inserisci i tuoi dati per calcolare il tuo IMC e scoprire in quale categoria rientri.</p>
+          
+          <div class="calculator-form">
+            <div class="form-group">
+              <label for="imc-weight">Peso (kg)</label>
+              <input type="number" id="imc-weight" min="30" max="300" step="0.1" placeholder="Es. 70">
+            </div>
+            <div class="form-group">
+              <label for="imc-height">Altezza (cm)</label>
+              <input type="number" id="imc-height" min="100" max="250" step="0.1" placeholder="Es. 175">
+            </div>
+            <button id="imc-calculate" class="btn btn-primary">Calcola IMC</button>
+          </div>
+
+          <div id="imc-result" class="result-container hidden">
+            <div class="result-header">
+              <h3>Il tuo IMC è: <span id="imc-value">0</span></h3>
+              <p>Categoria: <span id="imc-category" class="result-category">-</span></p>
+            </div>
+            <div class="imc-chart">
+              <div class="imc-scale">
+                <div class="imc-category" data-category="sottopeso">
+                  <span class="imc-label">Sottopeso</span>
+                  <span class="imc-range">&lt;18.5</span>
+                </div>
+                <div class="imc-category" data-category="normopeso">
+                  <span class="imc-label">Normopeso</span>
+                  <span class="imc-range">18.5-24.9</span>
+                </div>
+                <div class="imc-category" data-category="sovrappeso">
+                  <span class="imc-label">Sovrappeso</span>
+                  <span class="imc-range">25-29.9</span>
+                </div>
+                <div class="imc-category" data-category="obesita">
+                  <span class="imc-label">Obesità</span>
+                  <span class="imc-range">≥30</span>
+                </div>
+              </div>
+              <div id="imc-indicator" class="imc-indicator"></div>
+            </div>
+            <div class="result-info">
+              <p id="imc-description"></p>
+              <p class="disclaimer">Nota: L'IMC è un indicatore generale e non tiene conto di fattori come la massa muscolare, la distribuzione del grasso corporeo o altri fattori individuali. Consulta sempre un professionista della salute per una valutazione completa.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TDEE Calculator -->
+        <div class="calculator-content" id="tdee">
+          <h2>Calcolatore del Fabbisogno Calorico Giornaliero (TDEE)</h2>
+          <p>Il TDEE (Total Daily Energy Expenditure) rappresenta il numero totale di calorie che bruci in un giorno, tenendo conto del tuo metabolismo basale e del livello di attività fisica.</p>
+          
+          <div class="calculator-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tdee-age">Età</label>
+                <input type="number" id="tdee-age" min="15" max="100" placeholder="Es. 25">
+              </div>
+              <div class="form-group">
+                <label>Sesso</label>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="tdee-gender" value="male" checked>
+                    Uomo
+                  </label>
+                  <label>
+                    <input type="radio" name="tdee-gender" value="female">
+                    Donna
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tdee-weight">Peso (kg)</label>
+                <input type="number" id="tdee-weight" min="30" max="300" step="0.1" placeholder="Es. 70">
+              </div>
+              <div class="form-group">
+                <label for="tdee-height">Altezza (cm)</label>
+                <input type="number" id="tdee-height" min="100" max="250" step="0.1" placeholder="Es. 175">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="tdee-activity">Livello di Attività Fisica</label>
+              <select id="tdee-activity">
+                <option value="1.2">Sedentario (poco o nessun esercizio)</option>
+                <option value="1.375">Leggermente attivo (esercizio leggero 1-3 giorni/settimana)</option>
+                <option value="1.55">Moderatamente attivo (esercizio moderato 3-5 giorni/settimana)</option>
+                <option value="1.725">Molto attivo (esercizio intenso 6-7 giorni/settimana)</option>
+                <option value="1.9">Estremamente attivo (esercizio molto intenso, lavoro fisico)</option>
+              </select>
+            </div>
+            <button id="tdee-calculate" class="btn btn-primary">Calcola TDEE</button>
+          </div>
+
+          <div id="tdee-result" class="result-container hidden">
+            <div class="result-header">
+              <h3>Il tuo metabolismo basale (BMR) è: <span id="bmr-value">0</span> calorie</h3>
+              <p>Il tuo fabbisogno calorico giornaliero (TDEE) è: <span id="tdee-value">0</span> calorie</p>
+            </div>
+            <div class="result-info">
+              <p>Questo rappresenta una stima delle calorie necessarie per mantenere il tuo peso attuale, dato il tuo livello di attività fisica.</p>
+              <div class="calorie-goals">
+                <div class="calorie-goal">
+                  <h4>Per perdere peso:</h4>
+                  <p><span id="tdee-lose">0</span> calorie/giorno</p>
+                </div>
+                <div class="calorie-goal">
+                  <h4>Per mantenere il peso:</h4>
+                  <p><span id="tdee-maintain">0</span> calorie/giorno</p>
+                </div>
+                <div class="calorie-goal">
+                  <h4>Per aumentare il peso:</h4>
+                  <p><span id="tdee-gain">0</span> calorie/giorno</p>
+                </div>
+              </div>
+              <p class="disclaimer">Nota: Questi calcoli sono stime basate su formule generali. Le esigenze caloriche individuali possono variare. Consulta sempre un professionista della nutrizione per un piano alimentare personalizzato.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Macronutrient Calculator -->
+        <div class="calculator-content" id="macro">
+          <h2>Calcolatore Macronutrienti</h2>
+          <p>Calcola la distribuzione ideale di carboidrati, proteine e grassi in base al tuo fabbisogno calorico e ai tuoi obiettivi.</p>
+          
+          <div class="calculator-form">
+            <div class="form-group">
+              <label for="macro-calories">Calorie Giornaliere</label>
+              <input type="number" id="macro-calories" min="1000" max="5000" placeholder="Es. 2000">
+              <p class="form-help">Puoi utilizzare il calcolatore TDEE per determinare il tuo fabbisogno calorico</p>
+            </div>
+            <div class="form-group">
+              <label for="macro-goal">Obiettivo</label>
+              <select id="macro-goal">
+                <option value="lose">Perdita di peso</option>
+                <option value="maintain">Mantenimento</option>
+                <option value="gain">Aumento di massa muscolare</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="macro-activity">Livello di Attività Fisica</label>
+              <select id="macro-activity">
+                <option value="light">Leggera (1-2 giorni/settimana)</option>
+                <option value="moderate">Moderata (3-5 giorni/settimana)</option>
+                <option value="high">Intensa (6-7 giorni/settimana)</option>
+              </select>
+            </div>
+            <button id="macro-calculate" class="btn btn-primary">Calcola Macronutrienti</button>
+          </div>
+
+          <div id="macro-result" class="result-container hidden">
+            <div class="result-header">
+              <h3>Distribuzione dei Macronutrienti</h3>
+              <p>Basata su un apporto giornaliero di <span id="macro-daily-calories">0</span> calorie</p>
+            </div>
+            
+            <div class="macro-chart">
+              <div class="macro-pie-chart">
+                <div id="macro-pie-chart-container"></div>
+              </div>
+              <div class="macro-details">
+                <div class="macro-detail" data-macro="protein">
+                  <div class="macro-label">
+                    <span class="macro-color"></span>
+                    <h4>Proteine</h4>
+                  </div>
+                  <div class="macro-values">
+                    <p><span id="protein-percentage">0</span>% | <span id="protein-grams">0</span>g | <span id="protein-calories">0</span> cal</p>
+                  </div>
+                </div>
+                <div class="macro-detail" data-macro="carbs">
+                  <div class="macro-label">
+                    <span class="macro-color"></span>
+                    <h4>Carboidrati</h4>
+                  </div>
+                  <div class="macro-values">
+                    <p><span id="carbs-percentage">0</span>% | <span id="carbs-grams">0</span>g | <span id="carbs-calories">0</span> cal</p>
+                  </div>
+                </div>
+                <div class="macro-detail" data-macro="fat">
+                  <div class="macro-label">
+                    <span class="macro-color"></span>
+                    <h4>Grassi</h4>
+                  </div>
+                  <div class="macro-values">
+                    <p><span id="fat-percentage">0</span>% | <span id="fat-grams">0</span>g | <span id="fat-calories">0</span> cal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="result-info">
+              <p id="macro-description"></p>
+              <p class="disclaimer">Nota: Questa è una distribuzione generica dei macronutrienti. Le esigenze individuali possono variare in base a molti fattori. Consulta un professionista della nutrizione per un piano personalizzato.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calorie per dimagrire Calculator -->
+        <div class="calculator-content" id="calorie">
+          <h2>Calcolatore Calorie per Dimagrire</h2>
+          <p>Calcola quante calorie dovresti consumare per raggiungere il tuo peso obiettivo in un determinato periodo di tempo.</p>
+          
+          <div class="calculator-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cal-current-weight">Peso Attuale (kg)</label>
+                <input type="number" id="cal-current-weight" min="40" max="250" step="0.1" placeholder="Es. 80">
+              </div>
+              <div class="form-group">
+                <label for="cal-goal-weight">Peso Obiettivo (kg)</label>
+                <input type="number" id="cal-goal-weight" min="40" max="200" step="0.1" placeholder="Es. 70">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cal-height">Altezza (cm)</label>
+                <input type="number" id="cal-height" min="140" max="220" placeholder="Es. 175">
+              </div>
+              <div class="form-group">
+                <label for="cal-age">Età</label>
+                <input type="number" id="cal-age" min="15" max="100" placeholder="Es. 30">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Sesso</label>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="cal-gender" value="male" checked>
+                    Uomo
+                  </label>
+                  <label>
+                    <input type="radio" name="cal-gender" value="female">
+                    Donna
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cal-activity">Livello di Attività</label>
+                <select id="cal-activity">
+                  <option value="1.2">Sedentario</option>
+                  <option value="1.375">Leggermente attivo</option>
+                  <option value="1.55">Moderatamente attivo</option>
+                  <option value="1.725">Molto attivo</option>
+                  <option value="1.9">Estremamente attivo</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cal-timeframe">Tempo per raggiungere l'obiettivo (settimane)</label>
+              <input type="number" id="cal-timeframe" min="4" max="52" placeholder="Es. 12">
+            </div>
+            <button id="cal-calculate" class="btn btn-primary">Calcola Calorie per Dimagrire</button>
+          </div>
+
+          <div id="cal-result" class="result-container hidden">
+            <div class="result-header">
+              <h3>Il tuo piano calorico per dimagrire</h3>
+              <p>Per perdere <span id="cal-weight-to-lose">0</span> kg in <span id="cal-weeks">0</span> settimane:</p>
+            </div>
+            
+            <div class="calorie-plan">
+              <div class="calorie-info">
+                <p>Fabbisogno calorico attuale: <span id="cal-maintenance">0</span> calorie</p>
+                <p>Calorie giornaliere consigliate: <span id="cal-target">0</span> calorie</p>
+                <p>Deficit calorico giornaliero: <span id="cal-deficit">0</span> calorie</p>
+              </div>
+              
+              <div class="timeline">
+                <div class="timeline-start">
+                  <p>Oggi</p>
+                  <p><span id="cal-start-weight">0</span> kg</p>
+                </div>
+                <div class="timeline-progress">
+                  <div class="timeline-bar"></div>
+                  <div class="timeline-milestone">
+                    <span id="cal-milestone-week">0</span> settimane
+                  </div>
+                </div>
+                <div class="timeline-end">
+                  <p>Obiettivo</p>
+                  <p><span id="cal-end-weight">0</span> kg</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="result-info">
+              <p id="cal-feedback"></p>
+              <p class="disclaimer">Nota: Un deficit calorico sicuro è generalmente considerato tra 500-1000 calorie al giorno, con una perdita di peso di 0.5-1 kg a settimana. Consulta sempre un professionista della salute prima di iniziare una dieta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>FitAnti</h3>
+          <p>Il tuo portale per fitness e salute. Strumenti, consigli e risorse per migliorare il tuo benessere.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calcolatori.html">Calcolatori</a></li>
+            <li><a href="piano-allenamento.html">Piano Allenamento</a></li>
+            <li><a href="ricette.html">Ricette Fit</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contatti</h4>
+          <p>Email: info@fitanti.edu</p>
+          <p>Telefono: +39 392 445 1517</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FitAnti - Progetto scolastico. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navigation.js"></script>
+  <script src="js/calcolatori.js"></script>
+</body>
+</html>

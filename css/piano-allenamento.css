@@ -1,0 +1,280 @@
+/* Workout Generator */
+.workout-generator {
+  padding: var(--spacing-xl) 0;
+}
+
+.generator-form {
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xxl);
+  background-color: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.generator-form h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.generator-form p {
+  text-align: center;
+  color: var(--text-medium);
+  margin-bottom: var(--spacing-lg);
+}
+
+.generator-form .btn {
+  width: 100%;
+  margin-top: var(--spacing-md);
+}
+
+/* Workout Plan */
+.workout-plan {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.plan-header h2 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.plan-info {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.plan-info p {
+  margin-bottom: 0;
+}
+
+.plan-info span {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Week Schedule */
+.week-schedule {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.day-column {
+  background-color: var(--background-medium);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.day-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: var(--spacing-sm);
+  text-align: center;
+  font-weight: 600;
+}
+
+.day-content {
+  padding: var(--spacing-md);
+  min-height: 150px;
+}
+
+.workout-item {
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.workout-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.workout-item h4 {
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.workout-item p {
+  font-size: 0.85rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-medium);
+}
+
+.exercise-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.rest-day {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-medium);
+  font-style: italic;
+}
+
+/* Plan Notes */
+.plan-notes {
+  background-color: var(--background-medium);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-xl);
+}
+
+.plan-notes h3 {
+  margin-bottom: var(--spacing-md);
+}
+
+.plan-notes-list {
+  padding-left: var(--spacing-lg);
+}
+
+.plan-notes-list li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Plan Actions */
+.plan-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+/* Exercise Library */
+.exercise-library {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--background-medium);
+}
+
+.exercise-library h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.exercise-library > .container > p {
+  text-align: center;
+  color: var(--text-medium);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.exercise-filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-xl);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  min-width: 200px;
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.exercise-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+}
+
+.exercise-card:hover {
+  transform: translateY(-5px);
+}
+
+.exercise-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.exercise-details {
+  padding: var(--spacing-md);
+}
+
+.exercise-details h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.exercise-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-medium);
+  font-size: 0.9rem;
+}
+
+/* Exercise Modal */
+.modal-img-container {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.modal-img-container img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: var(--border-radius);
+}
+
+.modal-info {
+  margin-bottom: var(--spacing-lg);
+}
+
+.modal-description, .modal-tips {
+  margin-bottom: var(--spacing-lg);
+}
+
+.modal-description h4, .modal-tips h4 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.modal-tips ul {
+  padding-left: var(--spacing-lg);
+}
+
+.modal-tips li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .exercise-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .week-schedule {
+    grid-template-columns: 1fr;
+  }
+  
+  .plan-actions {
+    flex-direction: column;
+  }
+  
+  .plan-actions .btn {
+    width: 100%;
+  }
+}

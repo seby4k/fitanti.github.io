@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricette Fit - FitAnti</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/ricette.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><span class="logo-text">Fit<span class="accent">Anti</span></span></a>
+      </div>
+      <nav>
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calcolatori.html">Calcolatori</a></li>
+          <li><a href="piano-allenamento.html">Piano Allenamento</a></li>
+          <li><a href="ricette.html" class="active">Ricette Fit</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Ricette Fit</h1>
+        <p>Deliziose ricette salutari con informazioni nutrizionali complete</p>
+      </div>
+    </section>
+
+    <section class="recipe-filters">
+      <div class="container">
+        <div class="filters">
+          <div class="filter-group">
+            <label for="filter-category">Categoria</label>
+            <select id="filter-category">
+              <option value="all">Tutte le categorie</option>
+              <option value="colazione">Colazione</option>
+              <option value="pranzo">Pranzo</option>
+              <option value="cena">Cena</option>
+              <option value="spuntino">Spuntini</option>
+              <option value="dolce">Dolci fit</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-diet">Dieta</label>
+            <select id="filter-diet">
+              <option value="all">Tutte le diete</option>
+              <option value="vegetarian">Vegetariano</option>
+              <option value="vegan">Vegano</option>
+              <option value="glutenfree">Senza glutine</option>
+              <option value="lowcarb">Low carb</option>
+              <option value="highprotein">Alto contenuto proteico</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-time">Tempo di preparazione</label>
+            <select id="filter-time">
+              <option value="all">Qualsiasi tempo</option>
+              <option value="quick">Veloce (&lt;15 min)</option>
+              <option value="medium">Medio (15-30 min)</option>
+              <option value="long">Lungo (&gt;30 min)</option>
+            </select>
+          </div>
+          <div class="search-group">
+            <input type="text" id="recipe-search" placeholder="Cerca ricette...">
+            <button id="search-btn" class="btn-icon">🔍</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recipes">
+      <div class="container">
+        <div class="recipes-grid" id="recipes-container">
+          <!-- Ricette generate dinamicamente da JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <div id="recipe-modal" class="modal">
+      <div class="modal-content recipe-modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="recipe-modal-header">
+          <h2 id="modal-recipe-title"></h2>
+          <div class="recipe-tags" id="modal-recipe-tags"></div>
+        </div>
+        
+        <div class="recipe-modal-body">
+          <div class="recipe-image-container">
+            <img id="modal-recipe-image" src="" alt="">
+          </div>
+          
+          <div class="recipe-details">
+            <div class="recipe-info">
+              <div class="info-item">
+                <span class="info-icon">⏱️</span>
+                <span class="info-label">Tempo</span>
+                <span id="modal-recipe-time" class="info-value"></span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">👨‍🍳</span>
+                <span class="info-label">Difficoltà</span>
+                <span id="modal-recipe-difficulty" class="info-value"></span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">🍽️</span>
+                <span class="info-label">Porzioni</span>
+                <span id="modal-recipe-servings" class="info-value"></span>
+              </div>
+            </div>
+            
+            <div class="nutrition-facts">
+              <h3>Valori nutrizionali (per porzione)</h3>
+              <div class="nutrition-grid">
+                <div class="nutrition-item">
+                  <span class="nutrition-value" id="modal-recipe-calories"></span>
+                  <span class="nutrition-label">Calorie</span>
+                </div>
+                <div class="nutrition-item">
+                  <span class="nutrition-value" id="modal-recipe-protein"></span>
+                  <span class="nutrition-label">Proteine</span>
+                </div>
+                <div class="nutrition-item">
+                  <span class="nutrition-value" id="modal-recipe-carbs"></span>
+                  <span class="nutrition-label">Carboidrati</span>
+                </div>
+                <div class="nutrition-item">
+                  <span class="nutrition-value" id="modal-recipe-fat"></span>
+                  <span class="nutrition-label">Grassi</span>
+                </div>
+                <div class="nutrition-item">
+                  <span class="nutrition-value" id="modal-recipe-fiber"></span>
+                  <span class="nutrition-label">Fibre</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="recipe-content">
+          <div class="ingredients-section">
+            <h3>Ingredienti</h3>
+            <ul id="modal-recipe-ingredients"></ul>
+          </div>
+          
+          <div class="instructions-section">
+            <h3>Preparazione</h3>
+            <ol id="modal-recipe-instructions"></ol>
+          </div>
+          
+          <div class="tips-section">
+            <h3>Consigli e note</h3>
+            <div id="modal-recipe-tips"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>FitAnti</h3>
+          <p>Il tuo portale per fitness e salute. Strumenti, consigli e risorse per migliorare il tuo benessere.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calcolatori.html">Calcolatori</a></li>
+            <li><a href="piano-allenamento.html">Piano Allenamento</a></li>
+            <li><a href="ricette.html">Ricette Fit</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contatti</h4>
+          <p>Email: info@fitanti.edu</p>
+          <p>Telefono: +39 392 445 1517</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FitAnti - Progetto scolastico. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navigation.js"></script>
+  <script src="js/ricette.js"></script>
+</body>
+</html>

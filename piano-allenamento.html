@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piano di Allenamento - FitAnti</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/piano-allenamento.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><span class="logo-text">Fit<span class="accent">Anti</span></span></a>
+      </div>
+      <nav>
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calcolatori.html">Calcolatori</a></li>
+          <li><a href="piano-allenamento.html" class="active">Piano Allenamento</a></li>
+          <li><a href="ricette.html">Ricette Fit</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Piano di Allenamento Personalizzato</h1>
+        <p>Crea un piano settimanale in base ai tuoi obiettivi e disponibilità</p>
+      </div>
+    </section>
+
+    <section class="workout-generator">
+      <div class="container">
+        <div class="generator-form">
+          <h2>Crea il tuo piano</h2>
+          <p>Rispondi a queste domande per generare un piano di allenamento adatto alle tue esigenze</p>
+          
+          <div class="form-group">
+            <label for="workout-goal">Quale è il tuo obiettivo principale?</label>
+            <select id="workout-goal">
+              <option value="">Seleziona un obiettivo</option>
+              <option value="perdita-peso">Perdita di peso</option>
+              <option value="tonificazione">Tonificazione muscolare</option>
+              <option value="massa">Aumento della massa muscolare</option>
+              <option value="resistenza">Miglioramento della resistenza</option>
+              <option value="forza">Aumento della forza</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="workout-days">Quanti giorni a settimana puoi allenarti?</label>
+            <select id="workout-days">
+              <option value="">Seleziona i giorni</option>
+              <option value="2">2 giorni</option>
+              <option value="3">3 giorni</option>
+              <option value="4">4 giorni</option>
+              <option value="5">5 giorni</option>
+              <option value="6">6 giorni</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="workout-duration">Quanto tempo hai a disposizione per ogni sessione?</label>
+            <select id="workout-duration">
+              <option value="">Seleziona la durata</option>
+              <option value="15">15-30 minuti</option>
+              <option value="30">30-45 minuti</option>
+              <option value="45">45-60 minuti</option>
+              <option value="60">60+ minuti</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="workout-equipment">Che tipo di attrezzatura hai a disposizione?</label>
+            <select id="workout-equipment">
+              <option value="">Seleziona l'attrezzatura</option>
+              <option value="nessuna">Nessuna (solo corpo libero)</option>
+              <option value="base">Attrezzatura base (manubri, elastici)</option>
+              <option value="completa">Palestra completa</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="workout-level">Qual è il tuo livello di esperienza?</label>
+            <select id="workout-level">
+              <option value="">Seleziona il livello</option>
+              <option value="principiante">Principiante</option>
+              <option value="intermedio">Intermedio</option>
+              <option value="avanzato">Avanzato</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Preferenze di allenamento (seleziona tutte quelle che ti interessano)</label>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" name="workout-type" value="cardio">
+                Cardio
+              </label>
+              <label>
+                <input type="checkbox" name="workout-type" value="forza">
+                Allenamento di forza
+              </label>
+              <label>
+                <input type="checkbox" name="workout-type" value="hiit">
+                HIIT
+              </label>
+              <label>
+                <input type="checkbox" name="workout-type" value="flessibilita">
+                Flessibilità/Yoga
+              </label>
+            </div>
+          </div>
+          
+          <button id="generate-plan" class="btn btn-primary">Genera Piano di Allenamento</button>
+        </div>
+        
+        <div id="workout-plan" class="workout-plan hidden">
+          <div class="plan-header">
+            <h2>Il tuo piano di allenamento settimanale</h2>
+            <div class="plan-info">
+              <p>Obiettivo: <span id="plan-goal"></span></p>
+              <p>Livello: <span id="plan-level"></span></p>
+              <p>Giorni di allenamento: <span id="plan-days"></span></p>
+            </div>
+          </div>
+          
+          <div class="week-schedule">
+            <div class="day-column" data-day="1">
+              <div class="day-header">Giorno 1</div>
+              <div class="day-content" id="day-1"></div>
+            </div>
+            <div class="day-column" data-day="2">
+              <div class="day-header">Giorno 2</div>
+              <div class="day-content" id="day-2"></div>
+            </div>
+            <div class="day-column" data-day="3">
+              <div class="day-header">Giorno 3</div>
+              <div class="day-content" id="day-3"></div>
+            </div>
+            <div class="day-column" data-day="4">
+              <div class="day-header">Giorno 4</div>
+              <div class="day-content" id="day-4"></div>
+            </div>
+            <div class="day-column" data-day="5">
+              <div class="day-header">Giorno 5</div>
+              <div class="day-content" id="day-5"></div>
+            </div>
+            <div class="day-column" data-day="6">
+              <div class="day-header">Giorno 6</div>
+              <div class="day-content" id="day-6"></div>
+            </div>
+            <div class="day-column" data-day="7">
+              <div class="day-header">Giorno 7</div>
+              <div class="day-content" id="day-7"></div>
+            </div>
+          </div>
+          
+          <div class="plan-notes">
+            <h3>Note e consigli</h3>
+            <ul id="plan-notes-list"></ul>
+          </div>
+          
+          <div class="plan-actions">
+            <button id="print-plan" class="btn btn-secondary">Stampa Piano</button>
+            <button id="new-plan" class="btn btn-outline">Crea Nuovo Piano</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="exercise-library">
+      <div class="container">
+        <h2>Libreria degli Esercizi</h2>
+        <p>Esplora la nostra libreria di esercizi per comprendere meglio il tuo piano di allenamento</p>
+        
+        <div class="exercise-filters">
+          <div class="filter-group">
+            <label for="filter-muscle">Gruppo Muscolare</label>
+            <select id="filter-muscle">
+              <option value="all">Tutti</option>
+              <option value="petto">Petto</option>
+              <option value="schiena">Schiena</option>
+              <option value="gambe">Gambe</option>
+              <option value="spalle">Spalle</option>
+              <option value="braccia">Braccia</option>
+              <option value="core">Core/Addominali</option>
+              <option value="total">Total Body</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-equipment">Attrezzatura</label>
+            <select id="filter-equipment">
+              <option value="all">Tutti</option>
+              <option value="nessuna">Corpo Libero</option>
+              <option value="manubri">Manubri</option>
+              <option value="bilanciere">Bilanciere</option>
+              <option value="macchine">Macchine</option>
+              <option value="elastici">Elastici</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-level">Livello</label>
+            <select id="filter-level">
+              <option value="all">Tutti</option>
+              <option value="principiante">Principiante</option>
+              <option value="intermedio">Intermedio</option>
+              <option value="avanzato">Avanzato</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="exercise-grid" id="exercise-library"></div>
+        
+        <div id="exercise-modal" class="modal">
+          <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-exercise-name"></h3>
+            <div class="modal-body">
+              <div class="modal-img-container">
+                <img id="modal-exercise-img" src="" alt="">
+              </div>
+              <div class="modal-info">
+                <p><strong>Gruppo Muscolare:</strong> <span id="modal-muscle-group"></span></p>
+                <p><strong>Attrezzatura:</strong> <span id="modal-equipment"></span></p>
+                <p><strong>Livello:</strong> <span id="modal-level"></span></p>
+              </div>
+            </div>
+            <div class="modal-description">
+              <h4>Esecuzione</h4>
+              <p id="modal-description"></p>
+            </div>
+            <div class="modal-tips">
+              <h4>Consigli</h4>
+              <ul id="modal-tips"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>FitAnti</h3>
+          <p>Il tuo portale per fitness e salute. Strumenti, consigli e risorse per migliorare il tuo benessere.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calcolatori.html">Calcolatori</a></li>
+            <li><a href="piano-allenamento.html">Piano Allenamento</a></li>
+            <li><a href="ricette.html">Ricette Fit</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contatti</h4>
+          <p>Email: info@fitanti.edu</p>
+          <p>Telefono: +39 392 445 1517</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FitAnti - Progetto scolastico. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navigation.js"></script>
+  <script src="js/piano-allenamento.js"></script>
+</body>
+</html>
